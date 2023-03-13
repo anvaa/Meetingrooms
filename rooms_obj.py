@@ -1,5 +1,5 @@
 import sys
-from db_obj import Db
+
 
 
 class Rooms:
