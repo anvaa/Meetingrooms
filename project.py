@@ -1,15 +1,18 @@
 import sys
-from dbwork import Db
+from db_obj import Db
+from rooms_obj import Rooms
 
 def main():
 
     try:
-        ... #DB=Db()
+        R=Rooms()
     except ValueError as e:
         sys.exit(e)
     
     
-    print(Db())
+    
+    
+    print(R.room_type)
     
     
          

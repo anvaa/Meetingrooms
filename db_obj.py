@@ -24,6 +24,10 @@ class Db:
             return list_not_occupied(self._dbfile)
         
         
+        @property
+        def get_room_type(self):
+            return list_room_type(self._dbfile)
+        
         def __str__(self):
             s=""
             for r in list_not_occupied(self._dbfile):
@@ -33,8 +37,18 @@ class Db:
         
     except sqlite3.Error as e:    
         sys.exit(e)
+
+def main():
+    ...
+
         
-        
+def list_room_type(dbfile):
+        sqliteConnection = sqlite3.connect(dbfile)
+        cursor = sqliteConnection.cursor()
+        cursor.execute("SELECT DISTINCT type FROM rooms WHERE oc=0;")
+        _ = cursor.fetchall()
+        return _
+            
         
 def count_occupied(dbfile):
         sqliteConnection = sqlite3.connect(dbfile)
@@ -60,3 +74,9 @@ def check_file(fname):
     if os.path.isfile(fname):
         return True
     return False
+
+
+
+
+if __name__ == "__main__":
+    main()
