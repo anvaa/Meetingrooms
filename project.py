@@ -1,5 +1,5 @@
 import sys
-from csv_work import printit
+from csv_work import printit, write_list
 from rooms import Rooms
 
 def main():
@@ -35,6 +35,7 @@ def start_menu():
             printit(R.all_rooms)
             
         elif i == 5:
+            R.save_rooms()
             sys.exit("Room Booking Saved.")
         
         elif i == 0:

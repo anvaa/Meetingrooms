@@ -1,22 +1,23 @@
 import sys,os
-from csv_work import read_list, printit
+from csv_work import read_list, write_list, printit
 from datetime import datetime
 
 class Rooms:
     def __init__(self,csvfile="meeting_rooms.csv"):
         
         if not os.path.isfile(csvfile):
-            sys.exit(f"{csvfile} don´t exists.")
+            raise FileNotFoundError(f"{csvfile} don´t exists.")
 
-        self.all_rooms,self.av_rooms,self.oc_rooms = read_list(csvfile)
-
+        self.csvfile=csvfile
+        self.all_rooms,self.av_rooms,self.oc_rooms = read_list(self.csvfile)
+        
     def new_room(self):
-        r=_select_av_rooms(self.all_rooms)
-        if r == 0:
-            raise ValueError(f"Room is not available.")
-
-
-    
+        fd,td,oc=_select_av_rooms(self.all_rooms)
+        
+    def save_rooms(self):
+        write_list(self.csvfile, self.all_rooms)
+        
+        
 def _select_av_rooms(all_rooms):
     print(f"\n-New Room-")
     
@@ -29,24 +30,26 @@ def _select_av_rooms(all_rooms):
     printit(rooms)
     
     nr = input(f"Select Room Number: ").strip()
-    if nr in t:
-        print("correct")
-    else:
-        print("Fail")
-        # TODO "set room as oc"
     
-    return 0
+    if nr in t:
+        return fd,td,1
+    else:
+        raise ValueError(f"Room is not available.")
+    
 
 def find_available_rooms(ro,fd,td):
     t=""
-    n=[{"Room","Capacity"}]
+    n=[]
     for r in ro:
         print(r)
-        # if r[2] > fd:
-        #     if r[3] < td:
-        #         _=r[0],r[1]
-        #         n.append(_)
-        #         t=t+r[0]+" "
+        if r[2][0] == "0":
+            n.append((r[0],r[1]))
+            t=t+r[0]+" "
+        else:
+            if r[2] < fd:
+                if r[3] > td:
+                    n.append((r[0],r[1]))
+                    t=t+r[0]+" "
     return n, t
 
 
@@ -57,9 +60,12 @@ def is_date(dt):
         h,mi = ti.split(":")
         
         valid_date = f"{y}-{mo}-{d} {h}:{mi}"
-        validate_date_time(valid_date)
+        
     except: 
         raise ValueError("Wrong date/time format. Try yyyy-mm-dd hh:mm")
+    
+    validate_date_time(valid_date)
+    
     return valid_date
 
 def validate_date_time(test_date):
