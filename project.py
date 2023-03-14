@@ -1,5 +1,6 @@
 import sys
-from csv_work import Rooms
+from csv_work import printit
+from rooms import Rooms
 
 def main():
 
@@ -11,7 +12,7 @@ def main():
     
 def start_menu():
     while True:
-        print(f"\n-Meeting Room Booking-\n[1] New Booking\n[2] Available Rooms\n[3] Occupied Rooms\n[4] Exit Program")
+        print(f"\n-Meeting Room Booking-\n[1] New Booking\n[2] Available Rooms\n[3] Occupied Rooms\n[4] View all rooms\n[5] Save & Exit")
         try:
             i = int(input("Select Action: ").strip())
         except:
@@ -22,17 +23,19 @@ def start_menu():
             R.new_room()
         
         elif i == 2:
-            print(f"\n-Available rooms-")
-            for r in R.av_rooms:
-                print(f"{r[0]} - {r[1]} seats")
-        
+            print(f"\n -Available rooms-")
+            printit(R.av_rooms)
+            
         elif i == 3:
-            print(f"\n-Occupied rooms-")
-            for r in R.oc_rooms:
-                print(f"{r[0]} - {r[1]} > {r[2]}")   
-
+            print(f"\n -Occupied rooms-")
+            printit(R.oc_rooms)
+            
         elif i == 4:
-            sys.exit("bye bye")
+            print(f"\n -All rooms-")
+            printit(R.all_rooms)
+            
+        elif i == 5:
+            sys.exit("Room Booking Saved.")
         
         elif i == 0:
             print(f"\n<< Nothing selected >>")    

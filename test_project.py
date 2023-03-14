@@ -3,7 +3,7 @@ from datetime import date
 from datetime import datetime
 from datetime import timedelta
 import pytest
-import csv_work
+import rooms
 
 
 right_date_format = datetime.now().strftime("%Y-%m-%d %H:%m")
@@ -21,18 +21,18 @@ def test_is_date():
     right_date_format = str(date.today())
     wrong_date_format = str(date.today()).replace("-",".")
     
-    csv_work.is_date(right_date_format) == True
+    rooms.is_date(right_date_format) == True
     
     # will fail: Wrong date format
     with pytest.raises(ValueError):
-        csv_work.is_date(wrong_date_format)
+        rooms.is_date(wrong_date_format)
 
 def test_validate_date_time():
 
     
     # will fail: 'From Date' is in the past.
     with pytest.raises(ValueError):
-        csv_work.validate_date_time(past_date)
+        rooms.validate_date_time(past_date)
     
 
 
