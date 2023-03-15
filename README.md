@@ -10,9 +10,9 @@ Keeping within the scope of CS50p, I used a 1-dimentional csv-file as data-stora
 The program startst with typing "python3 project.py" in the command-prompt.
 This will display the "Meeting Room Booking" menu that opt for selecting a number value from the listed menu. 
 
--Meeting Room Booking-
-[1] New Booking
-[2] Remove Booking
+-Meeting Room Booking-\n
+[1] New Booking\n
+[2] Remove Booking\n
 [3] Available Rooms
 [4] Occupied Rooms
 [5] All Rooms
