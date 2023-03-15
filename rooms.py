@@ -1,5 +1,5 @@
 import sys,os
-from csv_work import read_list, write_list, sort_rooms, printit
+from csv_work import read_list, write_list, printit
 from datetime import datetime
 
 class Rooms:

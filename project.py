@@ -1,12 +1,20 @@
 import sys
-from csv_work import printit, write_list
-from rooms import Rooms
+
+from csv_work import printit
+from rooms import Rooms, is_date, validate_date_time
 
 def main():
 
     try:
         start_menu()
-            
+        
+        # from datetime import datetime
+        # from datetime import timedelta
+        # d= datetime.now() + timedelta(days=1)
+        # future_date = d.strftime("%Y-%m-%d %H:%M")
+        
+        # print(">",future_date)
+        # run_tests(future_date)    
     except ValueError as e:
         sys.exit(e)
     
@@ -47,7 +55,18 @@ def start_menu():
         else:
             print(f"\n<< Invalid selection >>")
 
+# For testing purpose only
+def run_tests(d):
+    print(">>",isdate(d))
+    print(">>",validate_datetime(d))
 
+# For testing purpose only
+def isdate(d):
+    return is_date(d)
+
+# For testing purpose only
+def validate_datetime(d):
+    return validate_date_time(d)
 
 if __name__ == "__main__":
     main()

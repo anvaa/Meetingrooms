@@ -3,7 +3,6 @@ import csv
 def read_list(csvfile):
     
     with open(csvfile,"r") as f:
-        #t,a,o = sort_rooms(csv.DictReader(f))
         return sort_rooms(csv.DictReader(f))       
 
 
