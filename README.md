@@ -7,9 +7,9 @@ In this project I combined several of the skills from earlier submissions in the
 Keeping within the scope of CS50p, I used a 1-dimentional csv-file as data-storage instead of an database like Sqlite. So in this project the booking times are singular, instead od multiple, for each date pr. room.
 
 ## Code files
-<b>project.py</b> is the start file and contains main(), start_menu() and other test def`s.
-<b>rooms.py</b> contains det Rooms object and associated functions like room sorting and views.
-<b>csv_work.py</b> contains the functions that reDA nd writes to the csv-file. The exception is printit() that print all the list using [tabulate](https://pypi.org/project/tabulate/).
+<b>project.py</b> is the start file and contains main(), start_menu() and other test def`s.<br>
+<b>rooms.py</b> contains det Rooms object and associated functions like room sorting and views.<br>
+<b>csv_work.py</b> contains the functions that reDA nd writes to the csv-file. The exception is printit() that print all the list using [tabulate](https://pypi.org/project/tabulate/).<br>
 <b>teat_project.py</b> contains all the tests for project.py
 
 ## Using the program
