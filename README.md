@@ -25,15 +25,8 @@ From Date: 2023-03-16 12:00<br>
 To Date: 2023-03-16 12:30<br>
 
 -Available Rooms-<br>
-+--------+------------+<br>
-|&nbsp;&nbsp;Room&nbsp;|&emsp;Capacity&nbsp;|<br>
-+========+============+<br>
-|&nbsp;&nbsp;&nbsp;&nbsp;101&nbsp;|4&nbsp;|<br>
-+--------+------------+<br>
-|    102&nbsp|          8&nbsp|<br>
-+--------+------------+<br>
-|    401&nbsp|         22&nbsp|<br>
-+--------+------------+<br>
+*list of rooms<br>
+    
 Select Room Number: 102<br>
 
 2 "Remove Booking": Same as 'New Booking', but removing selected room as 'Occupied'.<br>
