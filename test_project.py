@@ -3,7 +3,6 @@ from datetime import date
 from datetime import datetime
 from datetime import timedelta
 import pytest
-#from project import is_date, validate_date_time
 import project
 
 # right_date_format = datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -31,7 +30,17 @@ def test_validate_datetime():
         project.validate_datetime(past_date)
    
     
-
+def test_printlist():
+    
+    s=[{"key1":"val1","key2":"val2"}]
+    
+    test_res="""+--------+--------+
+| key1   | key2   |
++========+========+
+| val1   | val2   |
++--------+--------+"""
+    
+    assert project.printlist(s) == test_res
 
 
 

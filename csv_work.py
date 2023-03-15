@@ -50,6 +50,8 @@ def consolidate_rooms(ro):
     return cdict
 
 
-def printit(to_print):
+def printit(to_print,opt=0):
     from tabulate import tabulate
+    if opt>0:
+        return tabulate(to_print,headers="keys", tablefmt="grid")
     print(tabulate(to_print,headers="keys", tablefmt="grid"))

@@ -8,13 +8,6 @@ def main():
     try:
         start_menu()
         
-        # from datetime import datetime
-        # from datetime import timedelta
-        # d= datetime.now() + timedelta(days=1)
-        # future_date = d.strftime("%Y-%m-%d %H:%M")
-        
-        # print(">",future_date)
-        # run_tests(future_date)    
     except ValueError as e:
         sys.exit(e)
     
@@ -67,6 +60,12 @@ def isdate(d):
 # For testing purpose only
 def validate_datetime(d):
     return validate_date_time(d)
+
+# For testing purpose only
+def printlist(p):
+    return printit(p,1)
+
+
 
 if __name__ == "__main__":
     main()
