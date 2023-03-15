@@ -20,7 +20,7 @@ This will display the "Meeting Room Booking" menu that opt for selecting a numbe
 
 1 "New Booking": Takes the user thrue selecting dates ("From" - "To"), displaying available rooms, and selecting a listed room number. When done the change is saved and reflected thrue the different "views" in menu selection 3-5.
 
--New Room-<br>
+<tab>-New Room-<br>
 From Date: 2023-03-16 12:00<br>
 To Date: 2023-03-16 12:30<br>
 
@@ -34,7 +34,7 @@ To Date: 2023-03-16 12:30<br>
 +--------+------------+<br>
 |    401 |         22 |<br>
 +--------+------------+<br>
-Select Room Number: 202<br>
+Select Room Number: 102<br>
 
 2 "Remove Booking": Same as 'New Booking', but removing selected room as 'Occupied'.<br>
 3 "Available Rooms": Lists all non occupied rooms.<br>
