@@ -85,7 +85,6 @@ def _deselect_av_rooms(oc_rooms):
  
 def find_occupied_room_nr(ro):   
     o=""
-    print(ro)
     for r in ro:
         o=o+r["Room"]+ " "
     return o
