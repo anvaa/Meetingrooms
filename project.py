@@ -12,7 +12,7 @@ def main():
     
 def start_menu():
     while True:
-        print(f"\n-Meeting Room Booking-\n[1] New Booking\n[2] Available Rooms\n[3] Occupied Rooms\n[4] View all rooms\n[5] Exit")
+        print(f"\n-Meeting Room Booking-\n[1] New Booking\n[2] Remove Booking\n[3] Available Rooms\n[4] Occupied Rooms\n[5] All Rooms\n[6] Save & Exit")
         try:
             i = int(input("Select Action: ").strip())
         except:
@@ -23,18 +23,21 @@ def start_menu():
             R.new_room()
         
         elif i == 2:
-            print(f"\n -Available rooms-")
-            printit(R.av_rooms)
+            R.remove_rooms()
             
         elif i == 3:
-            print(f"\n -Occupied rooms-")
-            printit(R.oc_rooms)
+            print(f"\n-Available rooms-")
+            printit(R.av_rooms)
             
         elif i == 4:
-            print(f"\n -All rooms-")
-            printit(R.all_rooms)
+            print(f"\n-Occupied rooms-")
+            printit(R.oc_rooms)
             
         elif i == 5:
+            print(f"\n-All rooms-")
+            printit(R.all_rooms)
+            
+        elif i == 6:
             R.save_rooms()
             sys.exit("Room Booking Saved.")
         
@@ -43,6 +46,8 @@ def start_menu():
             
         else:
             print(f"\n<< Invalid selection >>")
+
+
 
 if __name__ == "__main__":
     main()

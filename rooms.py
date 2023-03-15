@@ -22,6 +22,16 @@ class Rooms:
 
         write_list(self.csvfile, self.all_rooms)
 
+    def remove_rooms(self):
+        nr = _deselect_av_rooms(self.oc_rooms)
+        for ro in self.all_rooms:
+            if ro["Room"] == nr:
+                ro["From"] = 0
+                ro["To"] = 0
+                ro["oc"] = 0
+
+        write_list(self.csvfile, self.all_rooms)
+
     
     def save_rooms(self):
         write_list(self.csvfile, self.all_rooms)
@@ -43,7 +53,7 @@ def _select_av_rooms(all_rooms):
     if nr in t:
         return nr,fd,td,1
     else:
-        raise ValueError(f"Room is not available.")
+        raise ValueError(f"Room number not in list.")
     
 
 def find_available_rooms(ro,fd,td):
@@ -51,14 +61,34 @@ def find_available_rooms(ro,fd,td):
     n=[]
     for r in ro:
         if r["From"] == "0":
-            n.append((r["Room"],r["Capacity"]))
+            n.append({"Room":r["Room"],"Capacity":r["Capacity"]})
             t=t+r["Room"]+" "
         else:
             if r["From"] < fd:
                 if r["To"] > td:
-                    n.append((r["Room"],r["Occupied"]))
+                    n.append({"Room":r["Room"],"Capacity":r["Capacity"]})
                     t=t+r["Room"]+" "
     return n, t
+
+
+def _deselect_av_rooms(oc_rooms):
+    print(f"\n-Occupied Rooms-")
+    
+    rooms=find_occupied_room_nr(oc_rooms)
+    printit(oc_rooms)
+    
+    nr = input(f"Select Room Number: ").strip()
+    if nr in rooms:
+        return nr
+    else:
+        raise ValueError(f"Room number not in list.")
+ 
+def find_occupied_room_nr(ro):   
+    o=""
+    print(ro)
+    for r in ro:
+        o=o+r["Room"]+ " "
+    return o
 
 
 def is_date(dt):
