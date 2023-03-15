@@ -4,7 +4,7 @@
 
 ## Project considerations
 In this project I combined several of the skills from earlier submissions in the cource.
-Keeping within the scope of CS50p, I used a 1-dimentional csv-file as data-storage instead of an database like Sqlite. So in this project the booking times are singular, instead od multiple, for each date pr. room.
+Keeping within the scope of CS50p, I used a 1-dimentional csv-file as data-storage instead of an database like Sqlite. So in this project the booking times are singular, instead of multiple, for each date pr. room.
 
 ## Code files
 <b>project.py</b> is the start file and contains main(), start_menu() and other test def`s.<br>
