@@ -43,5 +43,5 @@ Select Room Number: 202<br>
 6 "Save & Exit": Saved changes to the csv-file and existes the program.<br>
 
 ## Dependencies
-Program written and tested on Macos 13.2.10 using Python3<br>
+Program written and tested on MacOs 13.2.10 using Python3<br>
 [Tabulate](https://pypi.org/project/tabulate/) v0.9.0
