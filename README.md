@@ -41,3 +41,7 @@ Select Room Number: 202<br>
 4 "Occupied Rooms": Listes all occupied rooms.<br>
 5 "All Rooms": Lists a 'raw' list of all rooms, available and occupied.<br>
 6 "Save & Exit": Saved changes to the csv-file and existes the program.<br>
+
+## Dependencies
+Program written and tested on Macos 13.2.10 using Python3<br>
+[Tabulate](https://pypi.org/project/tabulate/) v0.9.0
