@@ -2,12 +2,17 @@ import csv
 
 def read_list(csvfile):
     
+    with open(csvfile,"r") as f:
+        #t,a,o = sort_rooms(csv.DictReader(f))
+        return sort_rooms(csv.DictReader(f))       
+
+
+def sort_rooms(rooms):
     t=[]
     a=[]
     o=[]
-    with open(csvfile) as f:
-        
-        for r in consolidate_rooms(csv.DictReader(f)):
+    
+    for r in consolidate_rooms(rooms):
             t.append({"Room":r["Room"],"Capacity":r["Capacity"],"From":r["From"],"To":r["To"],"oc":r["oc"]})
             if r["oc"] == "0":
                 a.append({"Room":r["Room"],"Capacity":r["Capacity"]})
@@ -29,21 +34,21 @@ def write_list(csvfile,save_dict):
     
 def consolidate_rooms(ro):
     from datetime import datetime
-    d = datetime.now().strftime("%Y-%m-%d %H:%m")
-    n=[]
+    d = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    cdict=[]
     for r in ro:
         if r["To"] == "0":
-            n.append({"Room":r["Room"],"Capacity":r["Capacity"],"From":r["From"],"To":r["To"],"oc":r["oc"]})
+            cdict.append({"Room":r["Room"],"Capacity":r["Capacity"],"From":r["From"],"To":r["To"],"oc":r["oc"]})
         else:
             if r["To"] < d:
                 r["From"] = 0
                 r["To"] = 0
                 r["oc"] = 0
-                n.append({"Room":r["Room"],"Capacity":r["Capacity"],"From":r["From"],"To":r["To"],"oc":r["oc"]})
+                cdict.append({"Room":r["Room"],"Capacity":r["Capacity"],"From":r["From"],"To":r["To"],"oc":r["oc"]})
             elif r["To"] > d:
-                n.append({"Room":r["Room"],"Capacity":r["Capacity"],"From":r["From"],"To":r["To"],"oc":r["oc"]})
-                
-    return n
+                cdict.append({"Room":r["Room"],"Capacity":r["Capacity"],"From":r["From"],"To":r["To"],"oc":r["oc"]})
+
+    return cdict
 
 
 def printit(to_print):

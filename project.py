@@ -12,7 +12,7 @@ def main():
     
 def start_menu():
     while True:
-        print(f"\n-Meeting Room Booking-\n[1] New Booking\n[2] Available Rooms\n[3] Occupied Rooms\n[4] View all rooms\n[5] Save & Exit")
+        print(f"\n-Meeting Room Booking-\n[1] New Booking\n[2] Available Rooms\n[3] Occupied Rooms\n[4] View all rooms\n[5] Exit")
         try:
             i = int(input("Select Action: ").strip())
         except:

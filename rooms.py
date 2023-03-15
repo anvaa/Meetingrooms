@@ -1,5 +1,5 @@
 import sys,os
-from csv_work import read_list, write_list, printit
+from csv_work import read_list, write_list, sort_rooms, printit
 from datetime import datetime
 
 class Rooms:
@@ -12,8 +12,17 @@ class Rooms:
         self.all_rooms,self.av_rooms,self.oc_rooms = read_list(self.csvfile)
         
     def new_room(self):
-        fd,td,oc=_select_av_rooms(self.all_rooms)
-        
+        nr,fd,td,oc=_select_av_rooms(self.all_rooms)
+        # 2023-03-15 11:00
+        for ro in self.all_rooms:
+            if ro["Room"] == nr:
+                ro["From"] = fd
+                ro["To"] = td
+                ro["oc"] = oc
+
+        write_list(self.csvfile, self.all_rooms)
+
+    
     def save_rooms(self):
         write_list(self.csvfile, self.all_rooms)
         
@@ -32,7 +41,7 @@ def _select_av_rooms(all_rooms):
     nr = input(f"Select Room Number: ").strip()
     
     if nr in t:
-        return fd,td,1
+        return nr,fd,td,1
     else:
         raise ValueError(f"Room is not available.")
     
@@ -41,15 +50,14 @@ def find_available_rooms(ro,fd,td):
     t=""
     n=[]
     for r in ro:
-        print(r)
-        if r[2][0] == "0":
-            n.append((r[0],r[1]))
-            t=t+r[0]+" "
+        if r["From"] == "0":
+            n.append((r["Room"],r["Capacity"]))
+            t=t+r["Room"]+" "
         else:
-            if r[2] < fd:
-                if r[3] > td:
-                    n.append((r[0],r[1]))
-                    t=t+r[0]+" "
+            if r["From"] < fd:
+                if r["To"] > td:
+                    n.append((r["Room"],r["Occupied"]))
+                    t=t+r["Room"]+" "
     return n, t
 
 
@@ -59,7 +67,7 @@ def is_date(dt):
         y,mo,d = da.split("-")
         h,mi = ti.split(":")
         
-        valid_date = f"{y}-{mo}-{d} {h}:{mi}"
+        valid_date = f"{y}-{mo}-{d} {h}:{mi}:00"
         
     except: 
         raise ValueError("Wrong date/time format. Try yyyy-mm-dd hh:mm")
@@ -68,10 +76,8 @@ def is_date(dt):
     
     return valid_date
 
-def validate_date_time(test_date):
-    d = datetime.now().strftime("%Y-%m-%d %H:%m")
+def validate_date_time(test_date=""):
+    d = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if test_date < d:
         raise ValueError("Date is in the past.")
     return True
-
-
