@@ -36,18 +36,11 @@ To Date: 2023-03-16 12:30<br>
 +--------+------------+<br>
 Select Room Number: 202<br>
 
-2 "Remove Booking": Same as 'New Booking', but removing selected room as 'Occupied'.
-3 "Available Rooms": Lists all non occupied rooms.
-4 "Occupied Rooms": Listes all occupied rooms.
-5 "All Rooms": Lists a 'raw' list of all rooms, available and occupied.
-6 "Save & Exit": Saved changes to the csv-file and existes the program.
-
-
-
-
-
-
-
+2 "Remove Booking": Same as 'New Booking', but removing selected room as 'Occupied'.<br>
+3 "Available Rooms": Lists all non occupied rooms.<br>
+4 "Occupied Rooms": Listes all occupied rooms.<br>
+5 "All Rooms": Lists a 'raw' list of all rooms, available and occupied.<br>
+6 "Save & Exit": Saved changes to the csv-file and existes the program.<br>
 
 
 
