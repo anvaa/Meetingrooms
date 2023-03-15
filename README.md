@@ -11,15 +11,14 @@ The program startst with typing "python3 project.py" in the command-prompt.
 This will display the "Meeting Room Booking" menu that opt for selecting a number value from the listed menu. 
 
 ...
--Meeting Room Booking-  
+-Meeting Room Booking-
 
-[1] New Booking. 
+[1] New Booking
 
-[2] Remove Booking. 
+[2] Remove Booking
 
-[3] Available Rooms. 
-
-[4] Occupied Rooms
+[3] Available Rooms<br>
+[4] Occupied Rooms<br>
 [5] All Rooms
 [6] Save & Exit
 ...
