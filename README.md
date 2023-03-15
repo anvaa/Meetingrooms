@@ -26,9 +26,9 @@ To Date: 2023-03-16 12:30<br>
 
 -Available Rooms-<br>
 +--------+------------+<br>
-|&nbsp&nbspRoom&nbsp|&emspCapacity&nbsp|<br>
+|&nbsp;&nbsp;Room&nbsp;|&emsp;Capacity&nbsp;|<br>
 +========+============+<br>
-|&nbsp&nbsp&nbsp&nbsp101&nbsp|4&nbsp|<br>
+|&nbsp;&nbsp;&nbsp;&nbsp;101&nbsp;|4&nbsp;|<br>
 +--------+------------+<br>
 |    102&nbsp|          8&nbsp|<br>
 +--------+------------+<br>
